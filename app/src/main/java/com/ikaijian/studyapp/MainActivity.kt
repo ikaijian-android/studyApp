@@ -2,7 +2,7 @@ package com.ikaijian.studyapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
+import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -12,6 +12,8 @@ import androidx.core.view.WindowInsetsCompat
 import com.ikaijian.studyapp.ui.HomeActivity
 
 class MainActivity : AppCompatActivity() {
+
+    private val TAG = "MainActivity 生命周期"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -30,18 +32,51 @@ class MainActivity : AppCompatActivity() {
         button.setOnClickListener {
             goToHome()
         }
+
+        Log.d(TAG, "onCreate: ")
     }
 
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG, "onStart: ")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG, "onResume: ")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause: ")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG, "onStop: ")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG, "onDestroy: ")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.d(TAG, "onRestart: ")
+    }
+
+
     private fun goToHome() {
-        Toast.makeText(this,"跳转到首页",Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "跳转到首页", Toast.LENGTH_SHORT).show()
         // 显示跳转
 //        Intent(this,HomeActivity::class.java).apply {
 //            putExtra("postId","12132312")
 //            startActivity(this)
 //        }
         // 另一种写法
-        val intent = Intent(this,HomeActivity::class.java)
-        intent.putExtra("postId","12345678")
+        val intent = Intent(this, HomeActivity::class.java)
+        intent.putExtra("postId", "12345678")
         startActivity(intent)
 
         // 隐式跳转，不用activity引用
