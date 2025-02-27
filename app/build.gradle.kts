@@ -7,6 +7,9 @@ android {
     namespace = "com.ikaijian.studyapp"
     compileSdk = 35
 
+    dataBinding {
+        //noinspection DataBindingWithoutKapt
+    }
     defaultConfig {
         applicationId = "com.ikaijian.studyapp"
         minSdk = 24
@@ -36,7 +39,10 @@ android {
 }
 
 dependencies {
-
+    implementation("com.squareup.retrofit2:retrofit:2.6.2")
+    implementation("com.squareup.retrofit2:converter-gson:2.4.0")
+    implementation("com.squareup.picasso:picasso:2.8")
+    implementation("androidx.databinding:databinding-runtime:7.1.2")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

@@ -3,6 +3,8 @@ package com.ikaijian.studyapp
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.view.View.OnClickListener
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -11,9 +13,12 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.ikaijian.studyapp.ui.HomeActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnClickListener {
 
     private val TAG = "MainActivity 生命周期"
+
+    lateinit var btn1: Button
+    lateinit var btn2: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -27,11 +32,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         // 绑定某个行为
-        val button = findViewById<Button>(R.id.button)
-        // 设置点击事件监听器
-        button.setOnClickListener {
-            goToHome()
-        }
+        val btn1 = findViewById<Button>(R.id.main_btn1)
+        val btn2 = findViewById<Button>(R.id.main_btn2)
+
+        btn1.setOnClickListener(this)
+        btn2.setOnClickListener(this)
 
         Log.d(TAG, "onCreate: ")
     }
@@ -83,5 +88,11 @@ class MainActivity : AppCompatActivity() {
 //        Intent("com.ikaijian.studyapp.home").apply {
 //            startActivity(this)
 //        }
+    }
+
+    override fun onClick(v: View?) {
+        if (v == btn2) {
+            startActivity(Intent(this, LogoActivity::class.java))
+        }
     }
 }
