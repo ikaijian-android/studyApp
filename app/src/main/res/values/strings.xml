@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">studyApp</string>
+
+    <string name="welcome_text">欢迎来到Secret Message 应用!
+    本应用用于加密一条信息。
+        点击开始按钮开始使用本应用本.
+    </string>
+    <string name="start">开始</string>
+    <string name="hint_message">请输入要加密的信息</string>
+    <string name="next">下一步</string>
+    <string name="encrypt_text">这是加密后的内容：</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
